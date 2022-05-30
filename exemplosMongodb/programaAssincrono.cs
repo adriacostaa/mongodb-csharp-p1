@@ -17,7 +17,7 @@ namespace exemploMongoDB
         {
             Console.WriteLine("Esperando 10 segundos ....");
             await Task.Delay(10000);
-        Console.WriteLine("Esperei 10 segundos ....");
+            Console.WriteLine("Esperei 10 segundos ....");
         }
     }
 }
