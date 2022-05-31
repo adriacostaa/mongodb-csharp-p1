@@ -23,8 +23,8 @@ namespace exemplosMongodb
             {
                 {"Título", "Guerra dos Tronos"},
                 {"Autor", "George R R Martin"},
-                {"Ano", "1999"},
-                {"Páginas", "856"}
+                {"Ano", 1999},
+                {"Páginas", 856}
             };
 
             var assuntoArray = new BsonArray();
@@ -42,8 +42,12 @@ namespace exemplosMongodb
             IMongoDatabase bancoDados = cliente.GetDatabase("Biblioteca");
 
             //acesso colecao
-            IMongoCollection<BsonDocument> coelcao = bancoDados.GetCollection<BsonDocument>("Livros");
+            IMongoCollection<BsonDocument> colecao = bancoDados.GetCollection<BsonDocument>("Livros");
 
+            //inclusao de documento
+            await colecao.InsertOneAsync(doc);
+
+            Console.WriteLine("Documento incluido com sucesso");
 
         }
     }
