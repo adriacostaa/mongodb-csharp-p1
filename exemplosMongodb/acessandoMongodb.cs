@@ -21,10 +21,10 @@ namespace exemplosMongodb
         {
             var doc = new BsonDocument
             {
-                {"Título", "Guerra dos Tronos"},
+                {"Titulo", "Guerra dos Tronos"},
                 {"Autor", "George R R Martin"},
                 {"Ano", 1999},
-                {"Páginas", 856}
+                {"Paginas", 856}
             };
 
             var assuntoArray = new BsonArray();
