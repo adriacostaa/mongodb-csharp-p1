@@ -11,7 +11,7 @@ namespace exemplosMongodb
     class conectandoMongoDB
     {
         public const string STRCONEXAO = "mongodb://localhost:27017";
-        public const string NOME_BASE = "Biblioteca";
+        public const string BASE = "Biblioteca";
         public const string COLECAO = "Livros";
 
         private static IMongoClient _cliente;
@@ -20,8 +20,17 @@ namespace exemplosMongodb
         static conectandoMongoDB()
         {
             _cliente = new MongoClient(STRCONEXAO);
-            _BaseDeDados = _cliente.GetDatabase(NOME_BASE);
+            _BaseDeDados = _cliente.GetDatabase(BASE);
         }
 
+        public IMongoClient Cliente
+        {
+            get { return _cliente; }
+        }
+
+        public IMongoCollection<Livro> Livros
+        {
+            get { return _BaseDeDados.GetCollection<Livro>(COLECAO); }
+        }
     }
 }
